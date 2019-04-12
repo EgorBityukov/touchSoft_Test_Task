@@ -10,7 +10,7 @@ public class CanBeEqual {
     static ArrayList<StringBuilder> withoutBrackets = new ArrayList<StringBuilder>();
     static ArrayList<StringBuilder> withBrackets = new ArrayList<StringBuilder>();
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
         int[] nums = new int[] {0,2,6,9};
         canBeEqualTo24(nums);
     }
@@ -40,28 +40,28 @@ public class CanBeEqual {
             }
         }
 
-        StringBuilder qwe;
+        StringBuilder buff;
         for (StringBuilder strBld : withoutBrackets) {
-            qwe = new StringBuilder(strBld);
-            withBrackets.add(qwe.insert(7, c).insert(4, o));
-            qwe = new StringBuilder(strBld);
-            withBrackets.add(qwe.insert(3, c).insert(0, o));
-            qwe = new StringBuilder(strBld);
-            withBrackets.add(qwe.insert(5, c).insert(0, o));
-            qwe = new StringBuilder(strBld);
-            withBrackets.add(qwe.insert(7, c).insert(2, o));
-            qwe = new StringBuilder(strBld);
-            withBrackets.add(qwe.insert(7, c).insert(4, o).insert(3, c).insert(0, o));
-            qwe = new StringBuilder(strBld);
-            withBrackets.add(qwe.insert(5, c).insert(2, o));
-            qwe = new StringBuilder(strBld);
-            withBrackets.add(qwe.insert(5, c).insert(3, c).insert(0, o).insert(0, o));
-            qwe = new StringBuilder(strBld);
-            withBrackets.add(qwe.insert(7, c).insert(7, c).insert(4, o).insert(2, o));
-            qwe = new StringBuilder(strBld);
-            withBrackets.add(qwe.insert(5, c).insert(5, c).insert(2, o).insert(0, o));
-            qwe = new StringBuilder(strBld);
-            withBrackets.add(qwe.insert(7, c).insert(5, c).insert(2, o).insert(2, o));
+            buff = new StringBuilder(strBld);
+            withBrackets.add(buff.insert(7, c).insert(4, o));
+            buff = new StringBuilder(strBld);
+            withBrackets.add(buff.insert(3, c).insert(0, o));
+            buff = new StringBuilder(strBld);
+            withBrackets.add(buff.insert(5, c).insert(0, o));
+            buff = new StringBuilder(strBld);
+            withBrackets.add(buff.insert(7, c).insert(2, o));
+            buff = new StringBuilder(strBld);
+            withBrackets.add(buff.insert(7, c).insert(4, o).insert(3, c).insert(0, o));
+            buff = new StringBuilder(strBld);
+            withBrackets.add(buff.insert(5, c).insert(2, o));
+            buff = new StringBuilder(strBld);
+            withBrackets.add(buff.insert(5, c).insert(3, c).insert(0, o).insert(0, o));
+            buff = new StringBuilder(strBld);
+            withBrackets.add(buff.insert(7, c).insert(7, c).insert(4, o).insert(2, o));
+            buff = new StringBuilder(strBld);
+            withBrackets.add(buff.insert(5, c).insert(5, c).insert(2, o).insert(0, o));
+            buff = new StringBuilder(strBld);
+            withBrackets.add(buff.insert(7, c).insert(5, c).insert(2, o).insert(2, o));
         }
 
         System.out.println(withBrackets.toString());
