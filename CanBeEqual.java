@@ -27,15 +27,15 @@ public class CanBeEqual {
         permutation("", numbers);
         characterVariations();
 
-        for (String s : sortNumbers) {
-            for (String symb : сharacters) {
-                withoutBrackets.add(new StringBuilder().append(s, 0, 1)
-                        .append(symb, 0, 1)
-                        .append(s, 1, 2)
-                        .append(symb, 1, 2)
-                        .append(s, 2, 3)
-                        .append(symb, 2, 3)
-                        .append(s, 3, 4)
+        for (String number : sortNumbers) {
+            for (String symbol : сharacters) {
+                withoutBrackets.add(new StringBuilder().append(number, 0, 1)
+                        .append(symbol, 0, 1)
+                        .append(number, 1, 2)
+                        .append(symbol, 1, 2)
+                        .append(number, 2, 3)
+                        .append(symbol, 2, 3)
+                        .append(number, 3, 4)
                 );
             }
         }
