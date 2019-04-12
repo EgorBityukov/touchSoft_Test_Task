@@ -5,17 +5,17 @@ import java.util.Set;
 
 public class CanBeEqual {
 
-    static Set<String> symbols = new HashSet<String>();
+    static Set<String> сharacters = new HashSet<String>();
     static Set<String> sortNumbers = new HashSet<String>();
-    static ArrayList<StringBuilder> bezSkobok = new ArrayList<StringBuilder>();
-    static ArrayList<StringBuilder> soSkobkami = new ArrayList<StringBuilder>();
+    static ArrayList<StringBuilder> withoutBrackets = new ArrayList<StringBuilder>();
+    static ArrayList<StringBuilder> withBrackets = new ArrayList<StringBuilder>();
 
     public static void main(String[] args) throws Exception {
-        int[] nums = new int[] {4,1,2,3};
+        int[] nums = new int[] {0,2,6,9};
         canBeEqualTo24(nums);
     }
 
-    public static boolean canBeEqualTo24(int[] nums) throws Exception {
+    public static boolean canBeEqualTo24(int[] nums) {
 
         boolean b=false;
         long result=0;
@@ -25,11 +25,11 @@ public class CanBeEqual {
         for (int n : nums)
             numbers += String.valueOf(n);
         permutation("", numbers);
-        sortSymbols();
+        characterVariations();
 
         for (String s : sortNumbers) {
-            for (String symb : symbols) {
-                bezSkobok.add(new StringBuilder().append(s, 0, 1)
+            for (String symb : сharacters) {
+                withoutBrackets.add(new StringBuilder().append(s, 0, 1)
                         .append(symb, 0, 1)
                         .append(s, 1, 2)
                         .append(symb, 1, 2)
@@ -41,30 +41,32 @@ public class CanBeEqual {
         }
 
         StringBuilder qwe;
-        for (StringBuilder strBld : bezSkobok) {
+        for (StringBuilder strBld : withoutBrackets) {
             qwe = new StringBuilder(strBld);
-            soSkobkami.add(qwe.insert(7, c).insert(4, o));
+            withBrackets.add(qwe.insert(7, c).insert(4, o));
             qwe = new StringBuilder(strBld);
-            soSkobkami.add(qwe.insert(3, c).insert(0, o));
+            withBrackets.add(qwe.insert(3, c).insert(0, o));
             qwe = new StringBuilder(strBld);
-            soSkobkami.add(qwe.insert(5, c).insert(0, o));
+            withBrackets.add(qwe.insert(5, c).insert(0, o));
             qwe = new StringBuilder(strBld);
-            soSkobkami.add(qwe.insert(7, c).insert(2, o));
+            withBrackets.add(qwe.insert(7, c).insert(2, o));
             qwe = new StringBuilder(strBld);
-            soSkobkami.add(qwe.insert(7, c).insert(4, o).insert(3, c).insert(0, o));
+            withBrackets.add(qwe.insert(7, c).insert(4, o).insert(3, c).insert(0, o));
             qwe = new StringBuilder(strBld);
-            soSkobkami.add(qwe.insert(5, c).insert(2, o));
+            withBrackets.add(qwe.insert(5, c).insert(2, o));
             qwe = new StringBuilder(strBld);
-            soSkobkami.add(qwe.insert(5, c).insert(3, c).insert(0, o).insert(0, o));
+            withBrackets.add(qwe.insert(5, c).insert(3, c).insert(0, o).insert(0, o));
             qwe = new StringBuilder(strBld);
-            soSkobkami.add(qwe.insert(7, c).insert(7, c).insert(4, o).insert(2, o));
+            withBrackets.add(qwe.insert(7, c).insert(7, c).insert(4, o).insert(2, o));
             qwe = new StringBuilder(strBld);
-            soSkobkami.add(qwe.insert(5, c).insert(5, c).insert(2, o).insert(0, o));
+            withBrackets.add(qwe.insert(5, c).insert(5, c).insert(2, o).insert(0, o));
             qwe = new StringBuilder(strBld);
-            soSkobkami.add(qwe.insert(7, c).insert(5, c).insert(2, o).insert(2, o));
+            withBrackets.add(qwe.insert(7, c).insert(5, c).insert(2, o).insert(2, o));
         }
 
-        for (StringBuilder stringBuilder : soSkobkami) {
+        System.out.println(withBrackets.toString());
+
+        for (StringBuilder stringBuilder : withBrackets) {
             try {
                 Object obj = new ScriptEngineManager().getEngineByName("JavaScript").eval(stringBuilder.toString());
                 if(obj instanceof  Integer){
@@ -98,18 +100,18 @@ public class CanBeEqual {
         }
     }
 
-    private static void permutationSymbols(String prefix, String str) {
+    private static void permutationСharacters(String prefix, String str) {
 
         int n = str.length();
         if (n == 0) {
-            symbols.add(prefix);
+            сharacters.add(prefix);
         } else {
             for (int i = 0; i < n; i++)
-                permutationSymbols(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n));
+                permutationСharacters(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n));
         }
     }
 
-    private static void sortSymbols() {
+    private static void characterVariations() {
         final String operators = "+-*/";
         String s = "";
         for (int i = 3; i > 0; i--) {
@@ -120,7 +122,7 @@ public class CanBeEqual {
             }
         }
         for (int q = 0; q < 21; q++) {
-            permutationSymbols("", s.substring(q, q + 3));
+            permutationСharacters("", s.substring(q, q + 3));
         }
     }
 
