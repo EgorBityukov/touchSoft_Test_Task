@@ -64,8 +64,6 @@ public class CanBeEqual {
             withBrackets.add(buff.insert(7, c).insert(5, c).insert(2, o).insert(2, o));
         }
 
-        System.out.println(withBrackets.toString());
-
         for (StringBuilder stringBuilder : withBrackets) {
             try {
                 Object obj = new ScriptEngineManager().getEngineByName("JavaScript").eval(stringBuilder.toString());
@@ -114,6 +112,7 @@ public class CanBeEqual {
     private static void characterVariations() {
         final String operators = "+-*/";
         String s = "";
+
         for (int i = 3; i > 0; i--) {
             for (int n = 3; n >= 0; n--) {
                 for (int m = i; m > 0; m--) {
@@ -121,10 +120,10 @@ public class CanBeEqual {
                 }
             }
         }
+
         for (int q = 0; q < 21; q++) {
             permutationСharacters("", s.substring(q, q + 3));
         }
     }
 
 }
-
