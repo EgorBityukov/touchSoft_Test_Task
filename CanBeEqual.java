@@ -1,3 +1,5 @@
+import com.sun.javafx.collections.NonIterableChange;
+
 import javax.script.ScriptEngineManager;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -5,13 +7,13 @@ import java.util.Set;
 
 public class CanBeEqual {
 
-    static Set<String> сharacters = new HashSet<String>();
+    static Set<String> characters = new HashSet<String>();
     static Set<String> sortNumbers = new HashSet<String>();
     static ArrayList<StringBuilder> withoutBrackets = new ArrayList<StringBuilder>();
     static ArrayList<StringBuilder> withBrackets = new ArrayList<StringBuilder>();
 
     public static void main(String[] args){
-        int[] nums = new int[] {0,2,6,9};
+        int[] nums = new int[] {1,1,2,7};
         canBeEqualTo24(nums);
     }
 
@@ -25,10 +27,10 @@ public class CanBeEqual {
         for (int n : nums)
             numbers += String.valueOf(n);
         permutation("", numbers);
-        characterVariations();
+        permutationCharacters();
 
         for (String number : sortNumbers) {
-            for (String symbol : сharacters) {
+            for (String symbol : characters) {
                 withoutBrackets.add(new StringBuilder().append(number, 0, 1)
                         .append(symbol, 0, 1)
                         .append(number, 1, 2)
@@ -98,31 +100,18 @@ public class CanBeEqual {
         }
     }
 
-    private static void permutationСharacters(String prefix, String str) {
 
-        int n = str.length();
-        if (n == 0) {
-            сharacters.add(prefix);
-        } else {
-            for (int i = 0; i < n; i++)
-                permutationСharacters(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n));
-        }
-    }
-
-    private static void characterVariations() {
+    private static void permutationCharacters() {
         final String operators = "+-*/";
-        String s = "";
+        String s;
 
-        for (int i = 3; i > 0; i--) {
-            for (int n = 3; n >= 0; n--) {
-                for (int m = i; m > 0; m--) {
-                    s = s + String.valueOf(operators.charAt(n));
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                for (int k = 0; k < 4; k++) {
+                    s= String.valueOf(operators.charAt(i))+operators.charAt(j)+operators.charAt(k);
+                        characters.add(s);
                 }
             }
-        }
-
-        for (int q = 0; q < 21; q++) {
-            permutationСharacters("", s.substring(q, q + 3));
         }
     }
 
