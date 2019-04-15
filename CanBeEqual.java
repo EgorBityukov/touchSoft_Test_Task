@@ -1,5 +1,3 @@
-import com.sun.javafx.collections.NonIterableChange;
-
 import javax.script.ScriptEngineManager;
 import java.util.ArrayList;
 import java.util.HashSet;
